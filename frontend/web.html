@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreastGuard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .step {
+            display: none;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .vaccination-form-wrapper {
+            perspective: 1000px;
+        }
+
+        .flip-enter {
+            animation: flipIn .45s ease both;
+        }
+
+        .flip-exit {
+            animation: flipOut .45s ease both;
+        }
+
+        @keyframes flipIn {
+            0% {
+                opacity: 0;
+                transform: rotateY(90deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+        }
+
+        @keyframes flipOut {
+            0% {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: rotateY(-90deg);
+            }
+        }
+
+        .result .actions {
+            margin-top: 12px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .ribbon {
+            position: absolute;
+            top: 12px;
+            right: -40px;
+            /* agak keluar biar diagonal enak */
+            transform: rotate(45deg);
+            background: #e11d48;
+            /* merah elegan */
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 50px;
+            /* panjang pita */
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="image/2.png" alt="Logo BreastGuard" />
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#analysis">Cancer Analysis</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- PITA: PROTOTIPE -->
+            <div class="ribbon">Prototipe</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Skrining Awal, Peduli Sejak Dini</h1>
+                    <p>BreastGuard membantu Anda memprediksi risiko kanker payudara secara cepat sebagai langkah awal
+                        untuk pencegahan dan kesadaran diri.</p>
+                    <div class="hero-buttons">
+                        <a href="#analysis" class="btn btn-primary">Mulai Analysis</a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-play-circle"></i>Pelajari Lebih Lanjut
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-value" data-target="500">0</span>
+                            <span class="stat-label">Pengguna Terdeteksi</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" data-target="50">0</span>
+                            <span class="stat-label">Tips Pencegahan</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" data-target="24">0</span>
+                            <span class="stat-label">Jam Layanan</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="doctors-image">
+                        <img src="image/awall.png" alt="Doctor Consultation">
+                    </div>
+
+                    <div class="doctor-cards-container">
+                        <div class="doctor-card left">
+                            <div class="doctor-info">
+                                <div class="doctor-avatar"></div>
+                                <div class="doctor-details">
+                                    <h4>Dr. Windarsih</h4>
+                                    <p>Specialist Kanker</p>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span style="margin-left: 5px; color: #64748b;">4.8</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating-card card-top-right">
+                        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+                            <i class="fas fa-star" style="color: #fbbf24; margin-right: 5px;"></i>
+                            <span class="rating-value">4.8</span>
+                        </div>
+                        <div style="color: #64748b; font-size: 0.85rem;">Client Senang</div>
+                        <div style="color: #64748b; font-size: 0.85rem;">5k+ Reviews</div>
+                    </div>
+
+                    <div class="floating-card card-bottom-left">
+                        <div class="online-dot"></div>
+                        <div>
+                            <strong>647+</strong><br>
+                            <span style="color: #64748b; font-size: 0.85rem;">Doctors Siap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="service">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Layanan Kami</div>
+                <h2 class="section-title">Tingkatkan kesadaran & lindungi diri<br>dengan deteksi dini</h2>
+            </div>
+
+            <div class="service-cards">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="service-img-placeholder">
+                        <img src="image/Rectangle 143.png" alt="AI Screening">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="service-title">Skrining Berbasis AI</h3>
+                        <p class="service-desc">
+                            Analisis risiko awal dengan dukungan teknologi AI, membantu mengenali faktor risiko sejak
+                            dini secara cepat.
+                        </p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="service-img-placeholder">
+                        <img src="image/Rectangle 145.png" alt="Awareness">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3 class="service-title">Edukasi & Kesadaran</h3>
+                        <p class="service-desc">
+                            Dapatkan tips pencegahan dan informasi penting untuk menjaga kesehatan payudara Anda
+                            sehari-hari.
+                        </p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <div class="service-img-placeholder">
+                        <img src="image/Rectangle 141.png" alt="Reports">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-file-medical-alt"></i>
+                        </div>
+                        <h3 class="service-title">Laporan & Rekomendasi</h3>
+                        <p class="service-desc">
+                            Hasil skrining disajikan dalam laporan sederhana, dengan rekomendasi langkah awal untuk
+                            tindak lanjut medis.
+                        </p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose" id="about">
+        <div class="container">
+            <div class="why-choose-content">
+
+                <!-- Teks -->
+                <div class="why-choose-text">
+                    <div class="section-subtitle">Mengapa Memilih BreastGuard?</div>
+                    <h2>Skrining Awal yang Mudah, Bantu Peduli Sejak Dini</h2>
+                    <p>
+                        BreastGuard hadir untuk meningkatkan kesadaran dan pencegahan kanker payudara.
+                        Dengan analisis berbasis AI, edukasi kesehatan, dan laporan sederhana, kami membantu Anda
+                        mengenali risiko lebih awal.
+                    </p>
+                    <a href="#analysis" class="btn btn-primary">Mulai Analisis</a>
+                </div>
+
+                <!-- Gambar + List -->
+                <div class="why-choose-image-container">
+                    <img src="image/Group 4547.png" alt="Doctor Consultation" class="doctor-image">
+
+                    <div class="features-list-wrapper">
+                        <ul class="features-list">
+                            <li>Analisis cepat & berbasis AI</li>
+                            <li>Laporan sederhana & mudah dipahami</li>
+                            <li>Tips pencegahan sesuai faktor risiko</li>
+                            <li>Edukasi kesehatan berkelanjutan</li>
+                        </ul>
+                    </div>
+
+                    <!-- Ornamen -->
+                    <div class="floating-shapes-why">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+                        <div class="shape shape-4"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="wellness">
+        <div class="container">
+            <h2>Menjaga Kesehatan Payudara<br>Satu Langkah Awal yang Bermakna</h2>
+        </div>
+    </section>
+
+    <!-- Vaccination Section -->
+    <section class="vaccination" id="analysis">
+        <div class="container">
+            <div class="vaccination-card-container">
+                <div class="doctor-image-container">
+                    <img src="image/Group 4548.png" alt="Doctor" class="doctor-image">
+                    <div class="floating-shapes">
+                        <div class="shape shape-blue-1">
+                            <span class="material-icons">sentiment_satisfied_alt</span>
+                        </div>
+                        <div class="shape shape-blue-2">
+                            <span class="material-icons">favorite</span>
+                        </div>
+                        <div class="shape shape-blue-3">
+                            <span class="material-icons">check_circle</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vaccination-form-wrapper">
+                    <div class="section-subtitle">Deteksi Awal</div>
+                    <h2>Cek Risiko Kanker Payudara Anda<br>Dengan Analisis Sederhana</h2>
+                    <form id="riskForm">
+                        <!-- Step 1 -->
+                        <div class="step active" id="step1">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Age</label>
+                                    <input type="number" name="age" min="0" step="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Menarche (age)</label>
+                                    <input type="number" name="menarche" min="0" step="1" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Menopause</label>
+                                    <select name="menopause" required>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Age at first birth</label>
+                                    <input type="number" name="agefirst" min="0" step="1" required>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="dot-navigation">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                                <button type="button" class="btn btn-primary" id="next1">Lanjut</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="step" id="step2">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Children</label>
+                                    <input type="number" name="children" min="0" step="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Breastfeeding (ever)</label>
+                                    <select name="breastfeeding" required>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Relatives with Breast Cancer</label>
+                                    <input type="number" name="nrelbc" min="0" step="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>BMI (IMC)</label>
+                                    <input type="number" name="imc" min="0" step="0.1" required>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="dot-navigation">
+                                    <span class="dot"></span>
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-secondary" id="back2">Kembali</button>
+                                    <button type="button" class="btn btn-primary" id="next2">Lanjut</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="step" id="step3">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" min="0" step="0.1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Exercise</label>
+                                    <select name="exercise" required>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Alcohol</label>
+                                    <select name="alcohol" required>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tobacco</label>
+                                    <select name="tobacco" required>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Allergies</label>
+                                    <select name="allergies" required>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group"></div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="dot-navigation">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot active"></span>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-secondary" id="back3">Kembali</button>
+                                    <button type="submit" class="btn btn-primary" id="submitBtn">Kirim</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="result" id="result" style="display:none;"></div>
+                <style>
+                    /* Overlay popup */
+                    #result {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: none;
+                        /* default hidden */
+                        align-items: center;
+                        justify-content: center;
+                        background: rgba(0, 0, 0, 0.6);
+                        /* semi transparent */
+                        z-index: 9999;
+                        animation: fadeIn 0.3s ease;
+                    }
+
+                    /* Konten popup */
+                    #result .popup-content {
+                        background: #fff;
+                        border-radius: 12px;
+                        padding: 24px;
+                        max-width: 420px;
+                        width: 90%;
+                        text-align: center;
+                        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+                        animation: slideUp 0.35s ease;
+                    }
+
+                    /* Animasi */
+                    @keyframes fadeIn {
+                        from {
+                            opacity: 0;
+                        }
+
+                        to {
+                            opacity: 1;
+                        }
+                    }
+
+                    @keyframes slideUp {
+                        from {
+                            transform: translateY(40px);
+                            opacity: 0;
+                        }
+
+                        to {
+                            transform: translateY(0);
+                            opacity: 1;
+                        }
+                    }
+
+                    /* Tombol */
+                    #result .actions {
+                        margin-top: 16px;
+                    }
+
+                    #result .btn-outline {
+                        background: transparent;
+                        border: 1px solid #0E58D8;
+                        color: #0E58D8;
+                        padding: 8px 16px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        transition: all 0.2s;
+                    }
+
+                    #result .btn-outline:hover {
+                        background: #0E58D8;
+                        color: #fff;
+                    }
+                </style>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <h2>Kesehatan Payudara Terlindungi</h2>
+                    <p class="footer-tagline">Deteksi dini, pencegahan, dan dukungan penuh dari tenaga medis terpercaya.
+                    </p>
+                    <ul class="footer-features">
+                        <li>Analisis kesehatan berbasis teknologi AI</li>
+                        <li>Dukungan tenaga medis berpengalaman</li>
+                        <li>Edukasi & informasi kanker payudara</li>
+                        <li>Konsultasi dan pemantauan berkala</li>
+                    </ul>
+                    <div>Follow us:</div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div style="margin-top: 2rem; color: #cbd5e1;">
+                        <p>© 2025 Group | JDSC 2025</p>
+                    </div>
+                </div>
+                <div class="subscribe-form">
+                    <h3>Berlangganan Info Kesehatan</h3>
+                    <p>Dapatkan tips kesehatan payudara, informasi deteksi dini, dan update layanan terbaru langsung ke
+                        email Anda.</p>
+                    <input type="email" placeholder="Windarsih@gmail.com">
+                    <button class="btn btn-primary" style="width: 100%;">Daftar Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
