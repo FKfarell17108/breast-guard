@@ -53,3 +53,10 @@
 2. Klik tombol Predict / Hitung Risiko.
 3. Lihat hasil prediksi dalam bentuk persentase risiko kanker payudara.
 4. Dapatkan rekomendasi awal untuk langkah skrining atau pencegahan.
+
+---
+
+## © 2025 Farell Kurniawan
+
+Hak cipta © 2025 Farell Kurniawan. Semua hak dilindungi undang-undang.  
+Distribusi dan penggunaan kode ini diizinkan sesuai dengan ketentuan lisensi **MIT**.
