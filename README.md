@@ -4,7 +4,7 @@
 
 *Web application* ini dibangun dengan model **Machine Learning (XGBoost)**.
 
-![breastguard](loading.png)
+![breastguard](docs/images/loading.png)
 
 ---
 
@@ -47,7 +47,7 @@ flask run
 http://localhost:5000
 ```
 
-![breastguard](home.png)
+![breastguard](docs/images/home.png)
 
 ---
 
@@ -58,7 +58,7 @@ http://localhost:5000
 3. Lihat hasil prediksi dalam bentuk persentase risiko kanker payudara.
 4. Dapatkan rekomendasi awal untuk langkah skrining atau pencegahan.
 
-![breastguard](form.png)
+![breastguard](docs/images/form.png)
 
 ---
 
