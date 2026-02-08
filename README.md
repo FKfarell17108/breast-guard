@@ -17,33 +17,33 @@
 ## Instalasi & Setup
 
 1. **Clone repo**
-   ```bash
-   git clone https://github.com/FKfarell17108/breast-guard.git
-   cd breast-guard
-   ```
+```bash
+git clone https://github.com/FKfarell17108/breast-guard.git
+cd breast-guard
+```
    
- 2. **Buat virtual environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # Linux/Mac
-   venv\Scripts\activate      # Windows
-   ```
+2. **Buat virtual environment**
+```bash
+python -m venv venv
+source venv/bin/activate   # Linux/Mac
+venv\Scripts\activate      # Windows
+```
 
- 3. **Install dependensi**
-   ```bash
-   pip install -r requirements.txt
-   ```
+3. **Install dependensi**
+```bash
+pip install -r requirements.txt
+```
 
- 4. **Jalankan backend**
-   ```bash
-   cd backend
-   flask run
-   ```
+4. **Jalankan backend**
+```bash
+cd backend
+flask run
+```
 
 5. **Buka di browser**
-   ```bash
-   http://localhost:5000
-   ```
+```bash
+http://localhost:5000
+```
 
 ---
 
