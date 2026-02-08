@@ -1,29 +1,55 @@
 # BreastGuard
 
-**BreastGuard** adalah webapp prediksi risiko kanker payudara yang memberikan persentase risiko serta rekomendasi gaya hidup dan medis sebagai langkah awal skrining dan pencegahan.  
+**BreastGuard** adalah *web application* prediksi risiko kanker payudara yang memberikan estimasi **persentase risiko**, lengkap dengan **rekomendasi gaya hidup & medis awal** sebagai langkah skrining dan pencegahan.
 
-Aplikasi ini dibangun dengan **XGBoost** untuk model prediksi, **Flask** untuk backend, dan frontend interaktif untuk input data dan visualisasi hasil.
+*Web application* ini dibangun dengan model **Machine Learning (XGBoost)**.
 
 ---
 
 ## Fitur Utama
 
-- Prediksi risiko kanker payudara berdasarkan data pengguna
-- Menampilkan persentase risiko dengan visualisasi
-- Memberikan rekomendasi gaya hidup dan medis awal
-- Backend dan frontend terpisah namun terintegrasi
+- **Prediksi risiko kanker payudara** berdasarkan input data pengguna
+- Menampilkan **persentase risiko**
+- Rekomendasi gaya hidup dan medis awal
 
 ---
 
-## Teknologi & Dependensi
+## Instalasi & Setup
 
-- Python 3.11+
-- Flask >=3.0
-- XGBoost >=2.0
-- Numpy >=1.24
-- Pandas >=2.0
-- Scikit-learn >=1.3
-- Matplotlib >=3.7
-- Seaborn >=0.12
-- Joblib >=1.3
-- H5py >=3.9
+1. **Clone repo**
+   ```bash
+   git clone https://github.com/FKfarell17108/breast-guard.git
+   cd breast-guard
+   ```
+   
+ 2. **Buat virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # Linux/Mac
+   venv\Scripts\activate      # Windows
+   ```
+
+ 3. **Install dependensi**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+ 4. **Jalankan backend**
+   ```bash
+   cd backend
+   flask run
+   ```
+
+5. **Buka di browser**
+   ```bash
+   http://localhost:5000
+   ```
+
+---
+
+## Cara Penggunaan
+
+1. Masukkan data pengguna seperti usia, riwayat keluarga, gaya hidup, dll.
+2. Klik tombol Predict / Hitung Risiko.
+3. Lihat hasil prediksi dalam bentuk persentase risiko kanker payudara.
+4. Dapatkan rekomendasi awal untuk langkah skrining atau pencegahan.
