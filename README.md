@@ -1,22 +1,22 @@
 # BreastGuard
 
-**BreastGuard** adalah *web application* prediksi risiko kanker payudara yang memberikan estimasi **persentase risiko**, lengkap dengan **rekomendasi gaya hidup & medis awal** sebagai langkah skrining dan pencegahan.
+**BreastGuard** is a breast cancer risk prediction web application that provides an estimate of your **risk percentage**, complete with **initial lifestyle and medical recommendations** as screening and prevention measures.
 
-*Web application* ini dibangun dengan model **Machine Learning (XGBoost)**.
+This *web application* was built using the **Machine Learning (XGBoost)** model.
 
 ![breastguard](docs/images/loading.png)
 
 ---
 
-## Fitur Utama
+## Key Features
 
-- **Prediksi risiko kanker payudara** berdasarkan input data pengguna
-- Menampilkan **persentase risiko**
-- Rekomendasi gaya hidup dan medis awal
+- Breast cancer risk prediction based on user data input
+- Displaying risk percentage
+- Initial lifestyle and medical recommendations
 
 ---
 
-## Instalasi & Setup
+## Installation & Setup
 
 1. **Clone repo**
 ```bash
@@ -24,25 +24,25 @@ git clone https://github.com/FKfarell17108/breast-guard.git
 cd breast-guard
 ```
    
-2. **Buat virtual environment**
+2. **Create a virtual environment**
 ```bash
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 ```
 
-3. **Install dependensi**
+3. **Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Jalankan backend**
+4. **Run backend**
 ```bash
 cd backend
 flask run
 ```
 
-5. **Buka di browser**
+5. **Open in browser**
 ```bash
 http://localhost:5000
 ```
@@ -51,12 +51,12 @@ http://localhost:5000
 
 ---
 
-## Cara Penggunaan
+## How to Use
 
-1. Masukkan data pengguna seperti usia, riwayat keluarga, gaya hidup, dll.
-2. Klik tombol Predict / Hitung Risiko.
-3. Lihat hasil prediksi dalam bentuk persentase risiko kanker payudara.
-4. Dapatkan rekomendasi awal untuk langkah skrining atau pencegahan.
+1. Enter user data such as age, family history, lifestyle, etc.
+2. Click the Predict / Calculate Risk button.
+3. View the prediction results in the form of breast cancer risk percentages.
+4. Get initial recommendations for screening or prevention measures.
 
 ![breastguard](docs/images/form.png)
 
@@ -64,5 +64,5 @@ http://localhost:5000
 
 ## © 2025 Farell Kurniawan
 
-Hak cipta © 2025 Farell Kurniawan. Semua hak dilindungi undang-undang.  
-Distribusi dan penggunaan kode ini diizinkan sesuai dengan ketentuan lisensi **MIT**.
+Copyright © 2025 Farell Kurniawan. All rights reserved.  
+Distribution and use of this code is permitted under the terms of the **MIT** license.
