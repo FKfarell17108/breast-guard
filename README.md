@@ -62,7 +62,7 @@ http://localhost:5000
 
 ---
 
-**BreastGuard**: (https://breastguardweb.netlify.app/)
+**Website Prototype**: [BreastGuard](https://breastguardweb.netlify.app/)
 
 ---
 
